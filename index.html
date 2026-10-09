@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Ankit Kumar — Girlfriend Nilu's Little World 💕 | A special website made with love for my girlfriend Nilu.">
+<meta name="keywords" content="niluKit, nilu, Ankit Kumar, Nilu and Ankit, Girlfriend, Love, Special Website, Romantic, Personal Website, Love Story, Memories">
+<meta name="author" content="Ankit Kumar">
+
+<meta property="og:title" content="Ankit and Nilu | niluKit 💝 | For Girlfriend 💕">
+<meta property="og:description" content="For My Beautiful Girlfriend 💕 — A little world made with love.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nilukit.onrender.com">
+
+<meta name="theme-color" content="#e91e63">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ankit & Nilu">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="/images/icon.png">
+
+<title>Ankit and Nilu 💕</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/png" href="images\icon.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKVS3DGNZ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CKVS3DGNZ7');
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+<script src="pwa-init.js"></script>
+<script src="notifications.js" defer></script>
+<script src="dashboard.js" defer></script>
+<script src="live-chat.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ===== CUSTOM ANIMATED CURSOR ===== -->
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-particles" id="cursor-particles" aria-hidden="true"></div>
+
+<!-- ===== PASSWORD SCREEN ===== -->
+<div id="password-screen">
+  <div class="pw-stars" id="pw-stars"></div>
+  <div class="pw-card" id="pw-card">
+    <span class="pw-lock-icon">🔐</span>
+    <h1 class="pw-title">Enter Our Secret</h1>
+    <p class="pw-subtitle">This little world was made just for you 💕</p>
+    <div class="pw-input-wrap">
+      <input
+        type="password"
+        class="pw-input"
+        id="pw-input"
+        placeholder="Enter password..."
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter') checkPassword()"
+      />
+      <button class="pw-toggle" onclick="togglePwVisibility()" id="pw-toggle" type="button" aria-label="Show password">👁️</button>
+    </div>
+    <button class="pw-btn" onclick="checkPassword()" type="button">Open My World 💫</button>
+    <p class="pw-error" id="pw-error"></p>
+    <p class="pw-hint">Hint: it might be something special <b>me</b> between <b>you</b> 💌</p>
+  </div>
+</div>
+
+<!-- ===== ZOOM OVERLAY ===== -->
+<div class="zoom-overlay" id="zoom-overlay" onclick="closeZoom()">
+  <img src="" id="zoom-img" alt="Zoomed photo" />
+</div>
+
+<!-- ===== VIRTUAL HUG OVERLAY ===== -->
+<div class="hug-overlay" id="hug-overlay">
+  <div class="hug-hearts-burst" id="hug-hearts-burst"></div>
+  <div class="hug-message-card">
+    <span class="hug-emoji">🤗💕</span>
+    <h2 class="hug-title" id="hug-title">Sending you a warm hug!</h2>
+    <p class="hug-text" id="hug-text">You are loved, you are cherished, and you are never alone. I'm always here for you, my beautiful Naincy. 💕</p>
+    <button class="hug-close-btn" onclick="closeHug()">Thank you, my love 💕</button>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div id="main-content">
+
+  <!-- Cosmic Background -->
+  <div class="cosmic-bg" id="cosmic-bg">
+    <div class="orb" style="width:520px;height:520px;background:#9c27b0;top:-120px;left:-160px;--od:14s;--tx:40px;--ty:50px;--sc:1.15"></div>
+    <div class="orb" style="width:420px;height:420px;background:#e91e63;bottom:-120px;right:-120px;--od:18s;--tx:-30px;--ty:-45px;--sc:1.12"></div>
+    <div class="orb" style="width:320px;height:320px;background:#673ab7;top:38%;left:58%;--od:11s;--tx:25px;--ty:30px;--sc:1.2"></div>
+    <div class="orb" style="width:200px;height:200px;background:#ff6b9d;top:70%;left:15%;--od:16s;--tx:-15px;--ty:20px;--sc:1.1"></div>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="hearts-layer" id="hearts-layer"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">NiluKit💕</a>
+    <div class="nav-actions">
+      <button class="music-btn" id="music-btn" onclick="togglePlayerPanel()" type="button" aria-label="Open music player">
+        <span class="music-note" id="music-note">♪</span>
+        <span class="music-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span id="music-label">Music</span>
+      </button>
+      <button class="theme-toggle" onclick="toggleTheme()" type="button" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Audio engine -->
+  <audio id="bg-music" preload="metadata"></audio>
+
+  <!-- ===== ROMANTIC MUSIC PLAYER ===== -->
+  <div class="player-panel" id="player-panel" aria-hidden="true">
+    <div class="player-glow"></div>
+
+    <div class="player-top">
+      <div class="player-badge">💕 Our Playlist</div>
+      <button class="player-close" onclick="togglePlayerPanel()" type="button" aria-label="Close player">✕</button>
+    </div>
+
+    <div class="player-now">
+      <div class="player-art" id="player-art">
+        <span class="player-art-icon" id="player-art-icon">💗</span>
+        <div class="player-vinyl" id="player-vinyl"></div>
+      </div>
+      <div class="player-meta">
+        <p class="player-now-label">Now Playing</p>
+        <h3 class="player-title" id="player-title">Soft Hearts</h3>
+        <p class="player-artist" id="player-artist">For Naincy 💕</p>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="player-progress-wrap">
+      <span class="player-time" id="player-current">0:00</span>
+      <div class="player-progress" id="player-progress" role="slider" aria-label="Seek" tabindex="0">
+        <div class="player-progress-track">
+          <div class="player-progress-fill" id="player-progress-fill"></div>
+          <div class="player-progress-thumb" id="player-progress-thumb"></div>
+        </div>
+      </div>
+      <span class="player-time" id="player-duration">0:00</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="player-controls">
+      <button class="pc-btn" onclick="toggleShuffle()" type="button" id="shuffle-btn" title="Shuffle" aria-label="Shuffle">
+        <i class="fas fa-random"></i>
+      </button>
+      <button class="pc-btn" onclick="prevTrack()" type="button" aria-label="Previous">
+        <i class="fas fa-step-backward"></i>
+      </button>
+      <button class="pc-btn pc-play" onclick="toggleMusic()" type="button" id="play-btn" aria-label="Play">
+        <i class="fas fa-play" id="play-icon"></i>
+      </button>
+      <button class="pc-btn" onclick="nextTrack()" type="button" aria-label="Next">
+        <i class="fas fa-step-forward"></i>
+      </button>
+      <button class="pc-btn" onclick="toggleRepeat()" type="button" id="repeat-btn" title="Repeat" aria-label="Repeat">
+        <i class="fas fa-redo"></i>
+      </button>
+    </div>
+
+    <!-- Volume -->
+    <div class="player-volume">
+      <button class="pc-btn pc-vol-icon" onclick="toggleMute()" type="button" id="vol-btn" aria-label="Mute">
+        <i class="fas fa-volume-up" id="vol-icon"></i>
+      </button>
+      <input
+        type="range"
+        class="volume-slider"
+        id="volume-slider"
+        min="0"
+        max="100"
+        value="65"
+        aria-label="Volume"
+      />
+      <span class="vol-pct" id="vol-pct">65%</span>
+    </div>
+
+    <!-- Playlist -->
+    <div class="player-playlist-head">
+      <span>Romantic Playlist</span>
+      <span class="playlist-count" id="playlist-count">6 songs</span>
+    </div>
+    <div class="player-playlist" id="player-playlist"></div>
+  </div>
+  <div class="player-backdrop" id="player-backdrop" onclick="togglePlayerPanel()"></div>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero-eyebrow">✦ Made just for you ✦</p>
+      <h1 class="hero-title">
+        You are my <em>beautiful</em><br>little world 🌸
+      </h1>
+      <p class="hero-quote">
+        "Some people make life beautiful just by being in it ✨<br>
+        You are that person, for me, every single day."
+      </p>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-inner" onclick="openZoom(this)" role="button" tabindex="0" aria-label="View photo">
+            <div class="upload-placeholder">
+              <img src="images/photo1.jpeg" alt="Nilu" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue">
+        <span>SCROLL</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- DAYS TOGETHER COUNTER -->
+    <section class="counter-section reveal">
+      <div class="section-label">
+        <span class="section-eyebrow">✦ together since ✦</span>
+        <h2 class="section-title">Our <em>Beautiful</em> Journey</h2>
+      </div>
+
+      <div class="glass-card counter-card">
+        <div class="counter-grid">
+          <div class="counter-box">
+            <div class="counter-num" id="c-days">0</div>
+            <div class="counter-label">Days</div>
+          </div>
+          <div class="counter-box">
+            <div class="counter-num" id="c-hours">00</div>
+            <div class="counter-label">Hours</div>
+          </div>
+          <div class="counter-box">
+            <div class="counter-num" id="c-mins">00</div>
+            <div class="counter-label">Mins</div>
+          </div>
+          <div class="counter-box">
+            <div class="counter-num" id="c-secs">00</div>
+            <div class="counter-label">Secs</div>
+          </div>
+        </div>
+        <p class="counter-since">Since <b>May 29, 2026</b> · Friday · 8:17 PM 💕</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- POLAROID GALLERY -->
+    <!--══════════════════════════════════════════════-->                              
+    <section class="gallery-section reveal">
+      <div class="section-label">
+        <span class="section-eyebrow">✦ memories ✦</span>
+        <h2 class="section-title">Our <em>Beautiful</em> Moments</h2>
+      </div>
+
+      <div class="polaroid-grid" id="polaroid-grid">
+
+        <div class="polaroid" onclick="openZoomFromPolaroid(this)">
+          <div class="polaroid-img">
+            <img src="images/photo1.jpeg" alt="Always glowing" loading="lazy"/>
+          </div>
+          <p class="polaroid-caption">Hamar Radha 💃</p>
+          <span class="polaroid-heart">💕</span>
+        </div>
+
+        <div class="polaroid" onclick="openZoomFromPolaroid(this)">
+          <div class="polaroid-img">
+            <img src="images/photo2.jpeg" alt="This day" loading="lazy" />
+          </div>
+          <p class="polaroid-caption"> 80's </p>
+          <span class="polaroid-heart">💝</span>
+        </div>
+        <div class="polaroid" onclick="openZoomFromPolaroid(this)">
+          <div class="polaroid-img">
+            <img src="images/photo3.jpeg" alt="Our special moments" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Phulo Rani 🥰</p>
+          <span class="polaroid-heart">💫</span>
+        </div>
+
+        <!-- <div class="polaroid" onclick="openZoomFromPolaroid(this)">
+          <div class="polaroid-img">
+            <img src="images/photo4.jpeg" alt="Our special moments" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Phulo Rani 🥰</p>
+          <span class="polaroid-heart">💫</span>
+        </div> -->
+
+      </div>
+    </section>
+
+    <!-- LOVE TIMELINE -->
+    <section class="timeline-section reveal">
+      <div class="section-label">
+        <span class="section-eyebrow">✦ chapters ✦</span>
+        <h2 class="section-title">Our <em>Love</em> Timeline</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">The Beginning</div>
+          <h3 class="timeline-title">When Our Eyes Met ✨</h3>
+          <p class="timeline-text">A moment that felt ordinary — until it rewrote everything.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">May 29, 2026</div>
+          <h3 class="timeline-title">We Became Us 💕</h3>
+          <p class="timeline-text">8:17 PM — the second my world found its favorite person.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Every Day After</div>
+          <h3 class="timeline-title">Little Moments 🌸</h3>
+          <p class="timeline-text">Laughs, late talks, quiet comfort — magic in ordinary days.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Forever Ahead</div>
+          <h3 class="timeline-title">Still Writing Our Story 🌙</h3>
+          <p class="timeline-text">This is only the beginning of a beautiful forever.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+     <!-- SLIDESHOW -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="slideshow-section reveal">
+      <div class="section-label">
+        <span class="section-eyebrow">✦ our story ✦</span>
+        <h2 class="section-title">A <em>Beautiful</em> Story</h2>
+      </div>
+
+      <div class="slideshow-wrap">
+        <div class="slideshow-frame">
+          <div class="slide active" id="slide-0">
+            <div>
+              <video src="video/Video1.mp4" aria-label="The beginning of us" controls preload="metadata">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="slide-caption-bar">The beginning of us 🌸</div>
+          </div>
+
+          <div class="slide" id="slide-1">
+            <div>
+              <video src="video/Video2.mp4" aria-label="Every moment with you" controls preload="metadata">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="slide-caption-bar">Every moment with you ✨</div>
+          </div>
+
+          <div class="slide" id="slide-2">
+            <div>
+              <video src="video/Video3.mp4" aria-label="You make me smile" controls preload="metadata">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="slide-caption-bar">You make me smile 💕</div>
+          </div>
+
+        </div>
+
+        <div class="slideshow-controls">
+          <button class="slide-btn" onclick="prevSlide()" type="button" aria-label="Previous slide">‹</button>
+          <div class="slide-dots" id="slide-dots">
+            <button class="slide-dot active" onclick="goSlide(0)" type="button" aria-label="Slide 1" aria-current="true"></button>
+            <button class="slide-dot" onclick="goSlide(1)" type="button" aria-label="Slide 2" aria-current="false"></button>
+            <button class="slide-dot" onclick="goSlide(2)" type="button" aria-label="Slide 3" aria-current="false"></button>
+          </div>
+          <button class="slide-btn" onclick="nextSlide()" type="button" aria-label="Next slide">›</button>
+        </div>
+        <div class="slideshow-playback">
+          <button class="slideshow-play-btn" id="slide-play-btn" onclick="toggleCurrentSlideVideo()" type="button">▶ Play video</button>
+          <p class="slideshow-video-status" id="slideshow-video-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-text">Our Little World — made <b>Us</b> 💕</p>
+    <p class="footer-hearts">🌸 💫 🌺 💕 ✨</p>
+  </footer>
+
+</div><!-- /main-content -->
+
+<!-- Live Chat Toggle -->
+<div class="chat-toggle-btn" onclick="toggleChat()" role="button" tabindex="0" aria-label="Open live chat">
+  <span id="chat-toggle-icon">💬</span>
+</div>
+
+<div class="chat-box" id="chat-box">
+  <div class="chat-header">
+    <span class="chat-avatar">💕</span>
+    <div>
+      <p class="chat-title">Live Chat</p>
+      <p class="chat-status"><span class="status-dot"></span> <span id="online-status">connecting...</span></p>
+    </div>
+    <button class="chat-header-btn" id="chat-premium-btn" onclick="togglePremiumMenu()" type="button" aria-label="Open chat settings" title="Chat Settings">⚙️</button>
+    <button class="chat-close" onclick="toggleChat()" type="button" aria-label="Close chat">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chat-messages"></div>
+
+  <!-- Quick Romantic Replies -->
+  <div class="chat-quick-replies" id="chat-quick-replies">
+    <button type="button" class="chat-quick-btn" onclick="quickReply('I love you 💕')">I love you 💕</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('Miss you 🥺')">Miss you 🥺</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('Good morning ☀️')">Good morning ☀️</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('Good night 🌙')">Good night 🌙</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('You are the best 🥰')">You're the best 🥰</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('Thinking of you 💭')">Thinking of you 💭</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('Hugs 🤗')">Hugs 🤗</button>
+    <button type="button" class="chat-quick-btn" onclick="quickReply('😘😘😘')">😘😘😘</button>
+  </div>
+
+  <!-- ✅ FIXED: Send button now uses Font Awesome icon + proper class -->
+  <div class="chat-input-row">
+    <button type="button" class="chat-extra-btn" id="chat-emoji-toggle" onclick="toggleEmojiPicker()" title="Emoji">😊</button>
+    <input type="text" id="chat-input" placeholder="Type a sweet message..." maxlength="500" onkeydown="if(event.key==='Enter') sendMessage()" />
+    <button class="chat-send-btn" onclick="sendMessage()" type="button" aria-label="Send">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Floating Contacts -->
+<!-- <a href="https://bdaykit.onrender.com/" target="_blank" class="floating-contact-bday" rel="noopener noreferrer">
+   <i class="fa fa-birthday-cake" style="font-size:25px;color:rgb(229, 189, 69)"></i>
+  <span>B'day Surprise</span>
+</a> -->
+
+<a href="https://www.instagram.com/__ankit._.op_/" target="_blank" class="floating-contact-betu" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i>
+  <span>Betu ❤️</span>
+</a>
+
+<a href="https://www.instagram.com/anjali_rani_917/" target="_blank" class="floating-contact-babe" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i>
+  <span>Babe 💕</span>
+</a>
+
+<!-- Back to Top -->
+<button class="back-to-top" onclick="scrollToTop()" type="button" aria-label="Back to Top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a46f596629d0df2a',t:'MTc5MTQwMTcyOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
