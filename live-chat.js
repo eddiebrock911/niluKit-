@@ -1,6 +1,6 @@
 /* ============================================
    LIVE CHAT — PREMIUM EDITION 💎
-   Project: naincyKit
+   Project: niluKit
    Features: 40+ Premium Features
    ============================================ */
 
@@ -1781,7 +1781,7 @@ function exportChat(format) {
   const msgs = Object.entries(allMessages).sort((a, b) => a[1].timestamp - b[1].timestamp);
   
   if (format === "txt") {
-    let text = "=== Ankit & Naincy Chat Export ===\n";
+    let text = "=== Ankit & Nilu Chat Export ===\n";
     text += "Exported: " + new Date().toLocaleString() + "\n\n";
     msgs.forEach(([key, msg]) => {
       const time = new Date(msg.timestamp).toLocaleString();
@@ -1808,7 +1808,7 @@ function exportChat(format) {
     downloadFile("chat-export.html", html, "text/html");
   } else if (format === "pdf") {
     // Simple PDF-like text export
-    let text = "CHAT EXPORT - Ankit & Naincy\n";
+    let text = "CHAT EXPORT - Ankit & Nilu\n";
     text += "Date: " + new Date().toLocaleString() + "\n\n";
     msgs.forEach(([key, msg]) => {
       const time = new Date(msg.timestamp).toLocaleString();

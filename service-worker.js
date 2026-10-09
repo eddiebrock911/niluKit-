@@ -7,7 +7,7 @@
    - Caches assets for faster loading
    ========================================================= */
 
-const CACHE_NAME = "nilu-chat-v3";
+const CACHE_NAME = "nilu-chat-v5";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
@@ -58,7 +58,7 @@ self.addEventListener("message", (event) => {
   if (event.data.type === "SHOW_NOTIFICATION") {
     const { title, body, icon, badge, tag, data } = event.data.payload;
     
-    self.registration.showNotification(title || "Ankit & Naincy 💕", {
+    self.registration.showNotification(title || "Ankit & Nilu 💕", {
       body: body || "New message! 💕",
       icon: icon || "/images/icon.png",
       badge: badge || "/images/icon.png",
@@ -135,10 +135,10 @@ self.addEventListener("push", (event) => {
     try {
       const data = event.data.json();
       const notificationOptions = {
-        body: data.body || "New message from Naincy! 💕",
+        body: data.body || "New message from Nilu! 💕",
         icon: "/images/icon.png",
         badge: "/images/icon.png",
-        tag: "naincy-notification",
+        tag: "nilu-notification",
         requireInteraction: false,
         actions: [
           {
@@ -156,7 +156,7 @@ self.addEventListener("push", (event) => {
       };
 
       event.waitUntil(
-        self.registration.showNotification(data.title || "Ankit & Naincy 💕", notificationOptions)
+        self.registration.showNotification(data.title || "Ankit & Nilu 💕", notificationOptions)
       );
     } catch (err) {
       console.error("❌ Push notification error:", err);
@@ -164,10 +164,10 @@ self.addEventListener("push", (event) => {
   } else {
     // Fallback notification
     event.waitUntil(
-      self.registration.showNotification("Ankit & Naincy 💕", {
+      self.registration.showNotification("Ankit & Nilu 💕", {
         body: "New message! 💕",
         icon: "/images/icon.png",
-        tag: "naincy-notification"
+        tag: "nilu-notification"
       })
     );
   }

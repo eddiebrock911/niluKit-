@@ -5,7 +5,7 @@
 
 // ─── CONFIG ───────────────────────────────────────────────
 const CORRECT_PASSWORD = "nilu";
-const START_DATE = new Date("2026-05-29T20:17:00");
+const START_DATE = new Date("2026-09-18T08:05:09");
 
 // ─── PASSWORD ─────────────────────────────────────────────
 function createPwStars() {
@@ -64,7 +64,7 @@ function unlockWorld() {
   const main = document.getElementById("main-content");
   if (screen) screen.classList.add("unlocked");
   if (main) main.classList.add("visible");
-  // sessionStorage.setItem("naincykit_unlocked", "1");
+  // sessionStorage.setItem("nilukit_unlocked", "1");
   initHearts();
   startCounter();
   observeReveals();
@@ -277,7 +277,7 @@ function closeZoom() {
 // 🤗 VIRTUAL HUG FEATURE
 // ═══════════════════════════════════════════════════════════
 const HUG_MESSAGES = [
-  { emoji: "🤗💕", title: "A warm hug just for you!", text: "Close your eyes and feel my arms around you. You are so loved, Naincy. I'm always here for you, no matter what. 💕" },
+  { emoji: "🤗💕", title: "A warm hug just for you!", text: "Close your eyes and feel my arms around you. You are so loved, Nilu. I'm always here for you, no matter what. 💕" },
   { emoji: "🌸✨", title: "You're doing amazing!", text: "Even on tough days, remember — you're the strongest, bravest, most beautiful person I know. This hug is my way of saying I'm proud of you. 💪" },
   { emoji: "💗🦋", title: "My love wraps around you", text: "No distance is too far, no moment too dark — my love finds its way to you, always. Feel it now, like sunshine on your face. ☀️" },
   { emoji: "🌙💫", title: "You are never alone", text: "Even when the world feels heavy, remember you have someone who believes in you unconditionally. I'm your safe place, always. 🤗" },
@@ -287,11 +287,11 @@ const HUG_MESSAGES = [
   { emoji: "☀️💛", title: "You're my sunshine!", text: "On cloudy days, remember — you are someone's sunshine. You are MY sunshine. And I'll always be yours. ☀️💕" }
 ];
 
-let hugCount = parseInt(localStorage.getItem("naincykit_hugs") || "0");
+let hugCount = parseInt(localStorage.getItem("nilukit_hugs") || "0");
 
 function sendVirtualHug() {
   hugCount++;
-  localStorage.setItem("naincykit_hugs", String(hugCount));
+  localStorage.setItem("nilukit_hugs", String(hugCount));
   const countEl = document.getElementById("hug-count");
   if (countEl) countEl.textContent = hugCount;
 
@@ -383,7 +383,7 @@ const LOVE_REASONS = [
   { emoji: "🏠", text: "You feel like home — wherever you are, that's where I belong." }
 ];
 
-let reasonsSeen = parseInt(localStorage.getItem("naincykit_reasons_seen") || "0");
+let reasonsSeen = parseInt(localStorage.getItem("nilukit_reasons_seen") || "0");
 let lastReasonIndex = -1;
 
 function showRandomReason() {
@@ -415,7 +415,7 @@ function showRandomReason() {
   }
 
   reasonsSeen++;
-  localStorage.setItem("naincykit_reasons_seen", String(reasonsSeen));
+  localStorage.setItem("nilukit_reasons_seen", String(reasonsSeen));
   if (seenEl) seenEl.textContent = reasonsSeen;
 }
 
@@ -423,18 +423,18 @@ function showRandomReason() {
 // 💪 DAILY MOTIVATION QUOTES
 // ═══════════════════════════════════════════════════════════
 const QUOTES = [
-  { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs", icon: "💫", note: "Naincy, your passion for law will take you places you can't even imagine yet! 💪⚖️" },
+  { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs", icon: "💫", note: "Nilu, your passion for law will take you places you can't even imagine yet! 💪⚖️" },
   { quote: "Justice cannot be for one side alone, but must be for both.", author: "Eleanor Roosevelt", icon: "⚖️", note: "This is exactly the kind of lawyer you'll be — fair, balanced, and extraordinary! 🌟" },
   { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt", icon: "🌸", note: "Your dream of becoming a lawyer IS beautiful, and I believe in it with all my heart! 💕" },
   { quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill", icon: "💪", note: "Every tough exam, every hard day — you keep going. That's true strength, my love! 🔥" },
-  { quote: "The only impossible journey is the one you never begin.", author: "Tony Robbins", icon: "🚀", note: "You've already begun your journey, Naincy. And I'll walk every step with you! 🤝💕" },
-  { quote: "Injustice anywhere is a threat to justice everywhere.", author: "Martin Luther King Jr.", icon: "🏛️", note: "Future Advocate Naincy will fight against injustice — and win! ⚖️✨" },
-  { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt", icon: "🌟", note: "I believe in you Naincy. And I know YOU believe in yourself too. That's unstoppable! 💪" },
+  { quote: "The only impossible journey is the one you never begin.", author: "Tony Robbins", icon: "🚀", note: "You've already begun your journey, Nilu. And I'll walk every step with you! 🤝💕" },
+  { quote: "Injustice anywhere is a threat to justice everywhere.", author: "Martin Luther King Jr.", icon: "🏛️", note: "Future Advocate Nilu will fight against injustice — and win! ⚖️✨" },
+  { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt", icon: "🌟", note: "I believe in you Nilu. And I know YOU believe in yourself too. That's unstoppable! 💪" },
   { quote: "The pen is mightier than the sword.", author: "Edward Bulwer-Lytton", icon: "📝", note: "And your pen, dear future lawyer, will change the world! Keep writing your story! 🌍" },
-  { quote: "She believed she could, so she did.", author: "R.S. Grey", icon: "👑", note: "That's you, Naincy. Believe, fight, achieve. Your crown is waiting! 👑⚖️" },
+  { quote: "She believed she could, so she did.", author: "R.S. Grey", icon: "👑", note: "That's you, Nilu. Believe, fight, achieve. Your crown is waiting! 👑⚖️" },
   { quote: "Hard work beats talent when talent doesn't work hard.", author: "Tim Notke", icon: "🔨", note: "And baby, nobody works harder than you. Your success is inevitable! 💯" },
   { quote: "The law is reason, free from passion.", author: "Aristotle", icon: "🧠", note: "But you'll bring both reason AND passion to the law — that's what'll make you special! 💕⚖️" },
-  { quote: "Dream big. Start small. Act now.", author: "Robin Sharma", icon: "🎯", note: "You're doing exactly this right now, Naincy. Every study session counts! 📚✨" },
+  { quote: "Dream big. Start small. Act now.", author: "Robin Sharma", icon: "🎯", note: "You're doing exactly this right now, Nilu. Every study session counts! 📚✨" },
   { quote: "You are braver than you believe, stronger than you seem, and smarter than you think.", author: "A.A. Milne", icon: "🦁", note: "Read this again whenever you doubt yourself, my love. It's all true! 💕" },
   { quote: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb", icon: "🌱", note: "You're planting the seeds of your future right now. Keep growing, my love! 🌳" },
   { quote: "An investment in knowledge pays the best interest.", author: "Benjamin Franklin", icon: "📖", note: "Every page you read, every concept you learn — it's all building your empire! 🏰" }
@@ -474,7 +474,7 @@ let studyDuration = 25 * 60; // seconds
 let studyRemaining = 25 * 60;
 let studyInterval = null;
 let studyRunning = false;
-let studySessions = parseInt(localStorage.getItem("naincykit_study_sessions_" + new Date().toDateString()) || "0");
+let studySessions = parseInt(localStorage.getItem("nilukit_study_sessions_" + new Date().toDateString()) || "0");
 
 const STUDY_MESSAGES = {
   start: [
@@ -485,7 +485,7 @@ const STUDY_MESSAGES = {
   ],
   halfway: [
     "Halfway there, superstar! Keep going! 🌟💕",
-    "You're doing amazing, Naincy! More than halfway! 💪",
+    "You're doing amazing, Nilu! More than halfway! 💪",
     "Look at you go! Future Lawyer in the making! ⚖️✨",
   ],
   fiveMin: [
@@ -587,7 +587,7 @@ function startStudyTimer() {
       studyInterval = null;
       studyRunning = false;
       studySessions++;
-      localStorage.setItem("naincykit_study_sessions_" + new Date().toDateString(), String(studySessions));
+      localStorage.setItem("nilukit_study_sessions_" + new Date().toDateString(), String(studySessions));
 
       if (ring) ring.classList.remove("running");
       if (ring) ring.classList.add("done");
@@ -654,7 +654,7 @@ const LOVE_LETTER_TEXT = `I don't even know where to begin, because no words fee
 
 From the moment you came into my life, everything changed — the colours got brighter, the music got sweeter, and my heart found a reason to beat a little faster every single day.
 
-Naincy, you are not just my love — you are my best friend, my biggest inspiration, and my greatest blessing. Watching you chase your dream of becoming a lawyer fills me with so much pride that sometimes I can't even express it.
+Nilu, you are not just my love — you are my best friend, my biggest inspiration, and my greatest blessing. Watching you chase your dream of becoming a lawyer fills me with so much pride that sometimes I can't even express it.
 
 You study so hard, you fight so bravely, and you shine so bright — even on days when you don't feel like it. I want you to know that I see all of it, and I admire every single bit of it.
 
@@ -727,39 +727,40 @@ function replayLetter() {
 const PLAYLIST = [
   {
     title: "Soft Hearts",
-    artist: "For Naincy 💕",
+    artist: "For Nilu 💕",
     emoji: "💗",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    src: "music\\music1.mp3"
   },
   {
     title: "Moonlight Whisper",
     artist: "Romantic Nights 🌙",
     emoji: "🌙",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    src: "music\\music2.mp3"
   },
   {
     title: "Cherry Blossom",
     artist: "Our Spring 🌸",
     emoji: "🌸",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+    src: "music\\music3.mp3"
   },
   {
     title: "Forever Yours",
     artist: "Love Notes 💌",
     emoji: "💌",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    src: "music\\music4.mp3"
   },
   {
     title: "Starlit Dance",
-    artist: "Ankit & Naincy ✨",
+    artist: "Ankit & Nilu ✨",
     emoji: "✨",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3"
+    src: "music\\music5.mp3"
   },
   {
     title: "Golden Hour",
     artist: "Sweet Moments ☀️",
     emoji: "☀️",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"
+    src: "music\\music6.mp3"
+    // src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"
   }
 ];
 
@@ -986,7 +987,7 @@ function initMusicPlayer() {
   const audio = getAudio();
   if (!audio) return;
 
-  const savedVol = parseFloat(localStorage.getItem("naincykit_vol"));
+  const savedVol = parseFloat(localStorage.getItem("nilukit_vol"));
   audio.volume = isFinite(savedVol) ? savedVol : 0.55;
   lastVolume = audio.volume || 0.55;
   setVolumeUI(audio.volume);
@@ -998,7 +999,7 @@ function initMusicPlayer() {
       audio.volume = v;
       if (v > 0) lastVolume = v;
       setVolumeUI(v);
-      localStorage.setItem("naincykit_vol", String(v));
+      localStorage.setItem("nilukit_vol", String(v));
     });
   }
 
@@ -1060,7 +1061,7 @@ function toggleTheme() {
   if (icon) {
     icon.className = isLight ? "fas fa-sun" : "fas fa-moon";
   }
-  localStorage.setItem("naincykit_theme", isLight ? "light" : "dark");
+  localStorage.setItem("nilukit_theme", isLight ? "light" : "dark");
 }
 
 // ─── SCROLL / NAV ─────────────────────────────────────────
@@ -1285,7 +1286,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (studySessionsEl) studySessionsEl.textContent = studySessions;
 
   // Theme restore
-  if (localStorage.getItem("naincykit_theme") === "light") {
+  if (localStorage.getItem("nilukit_theme") === "light") {
     document.body.classList.add("light");
     const icon = document.querySelector(".theme-toggle i");
     if (icon) icon.className = "fas fa-sun";
