@@ -7,7 +7,7 @@
    - Caches assets for faster loading
    ========================================================= */
 
-const CACHE_NAME = "nilu-chat-v5";
+const CACHE_NAME = "nilu-chat-v7";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",

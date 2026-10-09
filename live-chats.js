@@ -1,17 +1,29 @@
 /* ============================================
    LIVE CHAT — PREMIUM EDITION 💎
-   Project: niluKit
+   Project: naincyKit
    Features: 40+ Premium Features
    ============================================ */
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA_e7cD4ueyJyJvFvk6Vhc5BOEw51S1Gp4",
+//   authDomain: "nilukit911.firebaseapp.com",
+//   databaseURL: "https://nilukit911-default-rtdb.firebaseio.com",
+//   projectId: "nilukit911",
+//   storageBucket: "nilukit911.firebasestorage.app",
+//   messagingSenderId: "81343718447",
+//   appId: "1:81343718447:web:e04193fb61a36abd2552da",
+//   measurementId: "G-DTG6GL5MRP"
+// };
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBGj9MkqAOUvGox8MEsaz7vPUOwQbAref4",
-  authDomain: "naincykit.firebaseapp.com",
-  databaseURL: "https://naincykit-default-rtdb.firebaseio.com",
-  projectId: "naincykit",
-  storageBucket: "naincykit.firebasestorage.app",
-  messagingSenderId: "401758447692",
-  appId: "1:401758447692:web:8928284aa8f7552290ece9"
+  apiKey: "AIzaSyA_e7cD4ueyJyJyFvK6vHc5BOEw51SI6p4",
+  authDomain: "nilukit911.firebaseapp.com",
+  projectId: "nilukit911",
+  storageBucket: "nilukit911.firebasestorage.app",
+  messagingSenderId: "81343718447",
+  appId: "1:81343718447:web:e04193fb61a36abd2552da",
+  measurementId: "G-DTG6GL5MRP"
 };
 
 window.NK = window.NK || {};
@@ -1781,7 +1793,7 @@ function exportChat(format) {
   const msgs = Object.entries(allMessages).sort((a, b) => a[1].timestamp - b[1].timestamp);
   
   if (format === "txt") {
-    let text = "=== Ankit & Nilu Chat Export ===\n";
+    let text = "=== Ankit & Naincy Chat Export ===\n";
     text += "Exported: " + new Date().toLocaleString() + "\n\n";
     msgs.forEach(([key, msg]) => {
       const time = new Date(msg.timestamp).toLocaleString();
@@ -1808,7 +1820,7 @@ function exportChat(format) {
     downloadFile("chat-export.html", html, "text/html");
   } else if (format === "pdf") {
     // Simple PDF-like text export
-    let text = "CHAT EXPORT - Ankit & Nilu\n";
+    let text = "CHAT EXPORT - Ankit & Naincy\n";
     text += "Date: " + new Date().toLocaleString() + "\n\n";
     msgs.forEach(([key, msg]) => {
       const time = new Date(msg.timestamp).toLocaleString();
