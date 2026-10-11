@@ -2,7 +2,7 @@
 
 ## ✅ What Was Accomplished
 
-Your "Ankit & Naincy 💕" chat app has been transformed into a **Full Progressive Web App (PWA)** with complete notification support!
+Your "Ankit & Nilu 💕" chat app has been transformed into a **Full Progressive Web App (PWA)** with complete notification support!
 
 ---
 
@@ -11,7 +11,7 @@ Your "Ankit & Naincy 💕" chat app has been transformed into a **Full Progressi
 ### 1. **manifest.json** - PWA Configuration
 ```json
 {
-  "name": "Ankit & Naincy 💕",
+  "name": "Ankit & Nilu 💕",
   "display": "standalone",
   "icons": [192x192, 512x512]
 }
@@ -205,7 +205,7 @@ After installation, verify these work:
 
 - [ ] App appears in Start Menu / App Drawer
 - [ ] Can open app by clicking icon
-- [ ] App window shows "Ankit & Naincy" title
+- [ ] App window shows "Ankit & Nilu" title
 - [ ] First message shows permission prompt
 - [ ] After allowing, notification appears
 - [ ] Notification shows sender name
@@ -221,7 +221,7 @@ After installation, verify these work:
 ## 📁 Directory Structure
 
 ```
-naincy/
+nilu/
 ├── 📄 index.html (MODIFIED - added PWA tags)
 ├── 📄 manifest.json (NEW - PWA config)
 ├── 📄 service-worker.js (NEW - background notifications)
